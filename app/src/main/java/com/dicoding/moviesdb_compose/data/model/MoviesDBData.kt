@@ -48,7 +48,7 @@ object MoviesDBData {
                     "Dalam \"Creed 3\", Adonis Creed dihadapkan pada tantangan baru yang melampaui dunia tinju. Ia harus berjuang dengan konflik internal, menghadapi masa lalunya, dan menghadapi musuh yang tangguh di dalam dan di luar ring. Cerita ini mengeksplorasi tema-tema seperti keluarga, identitas, ketahanan, dan keteguhan hati dalam menghadapi rintangan.\n" +
                     "\n" +
                     "Film ini juga menampilkan pertandingan tinju yang spektakuler, dengan aksi dan koreografi yang menegangkan. Pertarungan di dalam ring menjadi perpaduan dramatis antara fisik yang menakjubkan dan emosi yang mendalam, membuat penonton terhanyut dalam intensitas dan kekuatan karakter Adonis Creed.",
-            "https://www.themoviedb.org/movie/677179-creed-iii?language=id",
+            "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/cvsXj3I9Q2iyyIo95AecSd1tad7.jpg",
             "01 Mar 2023",
             "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/5i6SjyDbDWqyun8klUuCxrlFbyw.jpg"
         ),
