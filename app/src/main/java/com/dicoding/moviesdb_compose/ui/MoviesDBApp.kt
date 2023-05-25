@@ -78,7 +78,11 @@ fun MoviesDBApp(
                 )
             }
             composable(NavigationRouteScreen.Favourite.route) {
-                Favorite()
+                Favorite(
+                    navigateToDetail = { movieId ->
+                        navController.navigate(NavigationRouteScreen.Detail.createRoute(movieId))
+                    }
+                )
             }
             composable(NavigationRouteScreen.About.route) {
                 About()

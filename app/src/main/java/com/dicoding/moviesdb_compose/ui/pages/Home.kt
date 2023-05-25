@@ -10,8 +10,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.dicoding.moviesdb_compose.UiState
 import com.dicoding.moviesdb_compose.ViewModelFactory
-import com.dicoding.moviesdb_compose.data.db.RepositoryMovies
+import com.dicoding.moviesdb_compose.data.di.Injection
+import com.dicoding.moviesdb_compose.data.model.Movies
+import com.dicoding.moviesdb_compose.data.repository.RepositoryMovies
 import com.dicoding.moviesdb_compose.ui.component.ListDataMovies
 import com.dicoding.moviesdb_compose.ui.component.SearchBar
 import com.dicoding.moviesdb_compose.ui.theme.MoviesDB_ComposeTheme
@@ -21,55 +24,77 @@ import com.dicoding.moviesdb_compose.viewmodels.MoviesViewModel
 fun Home(
     navigateToDetail: (Long) -> Unit,
     modifier: Modifier = Modifier,
+    moviesViewModel: MoviesViewModel = viewModel(
+        factory = ViewModelFactory(Injection.provideRepository())
+    ),
 ) {
-    Column() {
-        HomeContent(
-            navigateToDetail = navigateToDetail,
-        )
+    val query by moviesViewModel.query
+    moviesViewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
+        when (uiState) {
+            is UiState.Loading -> {
+                moviesViewModel.search(query)
+            }
+            is UiState.Success -> {
+                HomeContent(
+                    query = query,
+                    onQueryChange = moviesViewModel::search,
+                    listMovie = uiState.data,
+                    modifier = modifier,
+                    navigateToDetail = navigateToDetail,
+                )
+            }
+            is UiState.Error -> {}
+        }
     }
 }
 
-@SuppressLint("SuspiciousIndentation")
 @Composable
 fun HomeContent(
+    query: String,
+    onQueryChange: (String) -> Unit,
+    listMovie: List<Movies>,
     modifier: Modifier = Modifier,
     navigateToDetail: (Long) -> Unit,
-    moviesViewModel: MoviesViewModel = viewModel(factory = ViewModelFactory(RepositoryMovies())),
 ) {
-    val movies by moviesViewModel.movies.collectAsState()
-    val query by moviesViewModel.query
-
-    SearchBar(
-        query = query,
-        onQueryChange = moviesViewModel::search,
+    Column(
         modifier = modifier
-            .fillMaxWidth()
-    )
-
-    if (movies.isNotEmpty()) {
-        ListDataMovies(
-            movies,
-            navigateToDetail = navigateToDetail,
-        )
-    } else {
-        Box(
-            contentAlignment = Alignment.Center,
+            .fillMaxSize()
+    ) {
+        SearchBar(
+            query = query,
+            onQueryChange = onQueryChange,
             modifier = modifier
-                .fillMaxSize()
-        ) {
-            Text(
-                text = "Data Kosong",
+                .fillMaxWidth()
+        )
+
+        if (listMovie.isNotEmpty()) {
+            ListDataMovies(
+                listMovie = listMovie,
+                navigateToDetail = navigateToDetail,
             )
+        } else {
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = modifier.fillMaxSize()
+            ) {
+                Text(
+                    text = "Data Kosong",
+                )
+            }
         }
     }
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun HomeContentPreview() {
     MoviesDB_ComposeTheme {
-        Home(
-            navigateToDetail = {}
+        HomeContent(
+            query = "",
+            onQueryChange = {},
+            listMovie = listOf(),
+            navigateToDetail = {},
         )
     }
 }

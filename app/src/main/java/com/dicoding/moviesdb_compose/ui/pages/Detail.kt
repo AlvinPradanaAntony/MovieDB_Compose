@@ -31,49 +31,68 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.dicoding.moviesdb_compose.R
+import com.dicoding.moviesdb_compose.UiState
 import com.dicoding.moviesdb_compose.ViewModelFactory
-import com.dicoding.moviesdb_compose.data.db.RepositoryMovies
+import com.dicoding.moviesdb_compose.data.di.Injection
+import com.dicoding.moviesdb_compose.data.repository.RepositoryMovies
 import com.dicoding.moviesdb_compose.ui.theme.MoviesDB_ComposeTheme
 import com.dicoding.moviesdb_compose.ui.theme.colorAccent
+import com.dicoding.moviesdb_compose.viewmodels.DetailViewModel
 import com.dicoding.moviesdb_compose.viewmodels.MoviesViewModel
 
 @Composable
 fun Detail(
     moviesId: Long,
-    moviesViewModel: MoviesViewModel = viewModel(
-        factory = ViewModelFactory(RepositoryMovies())
+    moviesViewModel: DetailViewModel = viewModel(
+        factory = ViewModelFactory(
+            Injection.provideRepository()
+        )
     ),
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val movies by moviesViewModel.movies.collectAsState()
-    val movie = movies.first() {
-        it.id == moviesId
+    moviesViewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
+        when (uiState) {
+            is UiState.Loading -> {
+                moviesViewModel.getDetailMovies(moviesId)
+            }
+            is UiState.Success -> {
+                val data = uiState.data
+                DetailContent(
+                    id = data.id,
+                    photo = data.photo,
+                    backCover = data.photoCover,
+                    title = data.name,
+                    description = data.description,
+                    releaseDate = data.releaseDate,
+                    isFavorite = data.isFavorite,
+                    navigateBack = navigateBack,
+                    modifier = modifier,
+                    onFavoriteButtonClicked = { id, state ->
+                        moviesViewModel.checkStatusFavourite(id, state)
+                    }
+                )
+            }
+            is UiState.Error -> {}
+        }
     }
-    DetailContent(
-        photo = movie.photo,
-        backCover = movie.photoCover,
-        title = movie.name,
-        description = movie.description,
-        releaseDate = movie.releaseDate,
-        navigateBack = navigateBack,
-        modifier = modifier
-    )
 }
 
 @Composable
 fun DetailContent(
+    id: Long,
     photo: String,
     backCover: String,
     title: String,
     description: String,
     releaseDate: String,
+    isFavorite: Boolean,
     navigateBack: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onFavoriteButtonClicked: (id: Long, state: Boolean) -> Unit,
 ) {
     Box(
-        modifier = modifier
-            .fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) {
         Column(
             modifier = Modifier
@@ -182,14 +201,14 @@ fun DetailContent(
             )
         }
         FloatingActionButton(
-            onClick = { /* aksi ketika FAB button ditekan */ },
+            onClick = {  onFavoriteButtonClicked(id, isFavorite) },
             backgroundColor = colorAccent,
             modifier = Modifier
                 .padding(16.dp)
                 .align(Alignment.BottomEnd)
         ) {
             Icon(
-                imageVector = Icons.Default.FavoriteBorder,
+                imageVector = if (!isFavorite) Icons.Default.FavoriteBorder else Icons.Default.Favorite,
                 contentDescription = "Favorite Button",
                 tint = Color.White
             )
