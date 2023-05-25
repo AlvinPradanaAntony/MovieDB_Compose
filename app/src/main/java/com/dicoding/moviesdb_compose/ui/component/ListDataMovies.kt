@@ -164,7 +164,7 @@ fun MoviesListItem(
                 Spacer(modifier = Modifier.height(12.dp))
                 Text(
                     text = description,
-                    fontSize = 10.sp,
+                    fontSize = 12.sp,
                     fontWeight = FontWeight.Normal,
                     maxLines = 4,
                     overflow = TextOverflow.Ellipsis,

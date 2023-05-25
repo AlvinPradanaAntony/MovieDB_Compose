@@ -14,6 +14,8 @@ class MoviesViewModel(private val repository: RepositoryMovies): ViewModel() {
     )
     val movies: StateFlow<List<Movies>> get() = _movies
 
+
+
     private val _query = mutableStateOf("")
     val query: State<String> get() = _query
 
