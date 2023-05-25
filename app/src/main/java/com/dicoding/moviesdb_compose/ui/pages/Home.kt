@@ -1,5 +1,6 @@
 package com.dicoding.moviesdb_compose.ui.pages
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -29,6 +30,7 @@ fun Home(
     }
 }
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun HomeContent(
     modifier: Modifier = Modifier,
@@ -43,7 +45,6 @@ fun HomeContent(
             onQueryChange = moviesViewModel::search,
             modifier = modifier
                 .fillMaxWidth()
-                .testTag("SearchBar")
         )
 
     if (movies.isNotEmpty()) {

@@ -87,7 +87,9 @@ fun MoviesDBApp(
             ) {
                 val id = it.arguments?.getInt("movieId") ?: -1
                 Detail(
-                    movieId = id,
+                    navigateBack = {
+                        navController.navigateUp()
+                    }
                 )
             }
         }
