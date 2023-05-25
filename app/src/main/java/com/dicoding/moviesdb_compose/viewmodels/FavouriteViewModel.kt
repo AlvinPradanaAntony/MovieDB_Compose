@@ -24,9 +24,4 @@ class FavouriteViewModel(private val repository: RepositoryMovies) : ViewModel()
                 _uiState.value = UiState.Success(it)
             }
     }
-
-    fun checkStatusFavourite(moviesId: Long, state: Boolean) = viewModelScope.launch {
-        repository.updateDataMovies(moviesId, !state)
-        getFavoriteMovie()
-    }
 }

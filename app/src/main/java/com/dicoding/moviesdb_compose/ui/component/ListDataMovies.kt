@@ -30,7 +30,6 @@ import com.dicoding.moviesdb_compose.data.model.Movies
 import com.dicoding.moviesdb_compose.data.model.MoviesDBData
 import com.dicoding.moviesdb_compose.ui.theme.MoviesDB_ComposeTheme
 import com.dicoding.moviesdb_compose.ui.theme.colorAccent
-import com.dicoding.moviesdb_compose.viewmodels.MoviesViewModel
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)

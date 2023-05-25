@@ -1,21 +1,18 @@
 package com.dicoding.moviesdb_compose.ui.component
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Info
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -45,17 +42,20 @@ fun BottomBar(
             NavigationItem(
                 title = stringResource(R.string.menu_home),
                 icon = Icons.Default.Home,
-                screen = NavigationRouteScreen.Home
+                screen = NavigationRouteScreen.Home,
+                contentDescription = stringResource(R.string.home_page)
             ),
             NavigationItem(
                 title = stringResource(R.string.menu_favourite),
                 icon = Icons.Default.Favorite,
-                screen = NavigationRouteScreen.Favourite
+                screen = NavigationRouteScreen.Favourite,
+                contentDescription = stringResource(R.string.favourite_page)
             ),
             NavigationItem(
                 title = stringResource(R.string.menu_about),
                 icon = Icons.Default.AccountCircle,
-                screen = NavigationRouteScreen.About
+                screen = NavigationRouteScreen.About,
+                contentDescription = stringResource(R.string.about_page)
             ),
         )
         val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -68,7 +68,7 @@ fun BottomBar(
                         Column(horizontalAlignment = Alignment.CenterHorizontally) {
                                 Icon(
                                     imageVector = item.icon,
-                                    contentDescription = item.title
+                                    contentDescription = item.contentDescription
                                 )
 
                             if(curentSelected) {

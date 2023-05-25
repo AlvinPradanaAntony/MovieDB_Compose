@@ -1,8 +1,5 @@
 package com.dicoding.moviesdb_compose.data.model
 
-import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
-
 data class Movies(
     val id: Long,
     val name: String,

@@ -5,7 +5,11 @@ object MoviesDBData {
         Movies(
             1,
             "Ambulance",
-            "Film Ambulance mengisahkan William Sharp (Yahya Abdul-Mateen II), veteran perang, yang membutuhkan uang sebesar US\$231 ribu untuk biaya operasi istrinya. Kesulitan finansial yang dihadapinya membuat Will memutuskan menjadi perampok. William lalu menghubungi Danny (Jake Gyllenhaal), saudara angkatnya yang merupakan seorang penjahat. Danny mengajaknya terlibat dalam perampokan bernilai US\$32 juta di sebuah bank besar di Los Angeles. Dengan berat hati, William menerima ajakan tersebut. Saat melakukan aksi perampokan, Willian dan Danny tak sengaja menembak petugas Los Angeles Police Department (LAPD). Mereka juga mulai dikepung oleh aparat kepolisian.",
+            "Sinopsis film \"Ambulance\" berpusat pada dua orang bersaudara, seorang pria yang terperangkap dalam hutang dan saudara perempuannya yang menjadi korban kejahatan. Dalam situasi yang putus asa, mereka memutuskan untuk merencanakan perampokan bank yang berisiko tinggi. Namun, segala sesuatunya berubah saat mereka terjebak dalam kejadian tak terduga yang membawa mereka ke ambulans darurat yang sedang dalam perjalanan.\n" +
+                    "\n" +
+                    "Di dalam ambulans, mereka harus berurusan dengan seorang paramedis yang berusaha menjaga para pasiennya, termasuk seorang polisi yang terluka parah, sementara mereka berusaha melarikan diri dari pengejaran polisi yang semakin dekat. Saat tekanan meningkat dan situasi semakin rumit, mereka terperangkap dalam pertempuran hidup dan mati di dalam ambulans yang bergerak cepat.\n" +
+                    "\n" +
+                    "\"Ambulance\" menghadirkan aksi yang intens dan kejutan tak terduga saat karakter-karakter utama berusaha bertahan hidup dan mencari jalan keluar dari keadaan yang semakin terjepit. Film ini menjanjikan adrenalin yang tinggi, ketegangan yang terus meningkat, serta plot yang penuh intrik dan kejutan.",
             "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/knyPWDAXhtu5nu3y6HKEMSEikQl.jpg",
             "16 Mar 2022",
             "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/vwp5ycCyynwDUb2b79yww1bSXAo.jpg"
@@ -13,7 +17,12 @@ object MoviesDBData {
         Movies(
             2,
             "AVATAR 2",
-            "Film ini berlatar beberapa tahun setelah bangsa Navi berhasil mengusir bangsa langit alias umat manusia dari Pandora. Kini, Jake Sully dan Neytiri (Zoe Saldana) telah resmi menjadi pasangan dan memimpin Omaticaya alias klan hutan. Mereka juga dikaruniai tiga anak, yakni Neteyam (Jamie Flatters), Loak (Britain Dalton) dan Tuk (Trinity JoLi Bliss). Jake dan Neytiri juga mengadopsi Kiri (Sigourney Weaver), anak drGrace sang ilmuwan yang berpihak kepada bangsa Navi di film pertama.</",
+            "Dalam \"Avatar 2,\" kita akan kembali ke dunia Pandora yang memukau dan menyaksikan kelanjutan perjalanan Jake Sully (diperankan oleh Sam Worthington) dan Neytiri (diperankan oleh Zoe Saldana). Setelah peristiwa film pertama, mereka kini telah menetap di antara suku Na'vi dan terlibat dalam melindungi lingkungan alam Pandora.\n" +
+                    "\n" +
+                    "Film ini akan menggali lebih dalam tentang dunia Pandora, mengungkapkan lebih banyak misteri dan keajaiban yang terkait dengan kehidupan dan kekuatan alam semesta yang ada di dalamnya. Kita akan melihat penjelajahan ke wilayah-wilayah baru di Pandora, termasuk lautan yang indah dan pemandangan bawah air yang spektakuler.\n" +
+                    "\n" +
+                    "Di tengah eksplorasi ini, Jake dan Neytiri juga akan menghadapi ancaman baru yang datang dari manusia yang berusaha memanfaatkan kekayaan alam Pandora. Mereka akan bersatu dengan suku Na'vi lainnya dalam pertempuran untuk melindungi tanah mereka dan menjaga keseimbangan ekosistem yang rapuh.\n" +
+                    "\n",
             "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
             "16 Des 2022",
             "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/suw8eyL3YwE4wfzPQ0cLR02k0Gh.jpg"
@@ -21,7 +30,25 @@ object MoviesDBData {
         Movies(
             3,
             "Black Panther 2",
-            "Black Panther: Wakanda Forever\" adalah film superhero Amerika Serikat yang dijadwalkan rilis pada tanggal 8 November 2022. Film ini diproduksi oleh Marvel Studios dan didistribusikan oleh Walt Disney Studios Motion Pictures.\\nFilm ini merupakan sekuel dari film \"Black Panther\" tahun 2018 yang sangat sukses secara komersial dan kritis. Film ini akan diarahkan oleh Ryan Coogler, yang juga mengarahkan film pertama. Film ini juga akan menjadi penghormatan kepada aktor Chadwick Boseman, yang memerankan karakter utama T\\\\nCerita film \"Black Panther: Wakanda Forever\" masih dirahasiakan, tetapi diketahui bahwa para pemeran dari film pertama akan kembali berperan dalam sekuel ini, seperti Lupita Nyong'o, Danai Gurira, Letitia Wright, Winston Duke, dan Martin Freeman. Beberapa tambahan pemeran baru juga dilaporkan, termasuk Michaela Coel dan Tenoch Huerta.\\nFilm ini diharapkan akan mengulang kesuksesan film pertamanya dan mengeksplorasi lebih dalam mengenai kerajaan fiksi Wakanda yang kaya dan maju secara teknologi, serta menghadirkan aksi superhero yang spektakuler.",
+            "Black Panther: Wakanda Forever kembali bercerita tentang kerajaan Wakanda dan masyarakatnya dengan berbagai kecanggihan teknologi yang dimilikinya.  Kerajaan ini sedang berduka atas kehilangan sosok raja mereka yaitu sang raja T’Challa yang meninggal dunia.\n" +
+                    "\n" +
+                    " Satu tahun sejak kepergiannya, Wakanda harus dihadapkan dengan masalah yang cukup pelik. Dunia luar  mencoba untuk mengambil vibranium dari Wakanda karena menilai Wakanda semakin lemah tanpa Black Panther.\n" +
+                    "\n" +
+                    "Hal ini membuat Wakanda harus terus bertahan dan tetap kuat dengan berbagai gempuran pihak luar terhadap Wakanda.\n" +
+                    "\n" +
+                    "Pencarian vibranium ini berlanjut melalui ekspedisi yang dilakukan oleh pemerintah Amerika Serikat menuju ke laut dengan menggunakan mesin detektor vibranium yang dimilikinya. Mereka menemukan bahwa sumber energi vibranium berada di dasar laut Wakanda. \n" +
+                    "\n" +
+                    "Tanpa mereka sadari, tim ekspedisi tersebut tiba-tiba diserang oleh makhluk misterius yang berada di dasar laut tersebut.\n" +
+                    "\n" +
+                    "Tindakan ini rupanya menyulut kemarahan bangsa Talokan, sebuah peradaban bawah laut yang selama ini mengasingkan diri dari dunia daratan selama ribuan tahun. Bangsa ini dipimpin oleh seorang raja bernama Namor (Tenoch Huerta), seorang mutan berkekuatan super yang telah memimpin selama berabad-abad.\n" +
+                    "\n" +
+                    "Wakanda yang sedang memperingati satu tahun kematian T’Challa harus dikejutkan dengan kedatangan Namor yang menuntut pertanggungjawaban Wakanda. Ia memperingatkan agar Wakanda segera mengusir pendatang di wilayah mereka.\n" +
+                    "\n" +
+                    "Ia juga meminta agar Wakanda menyerahkan orang yang menciptakan alat detektor Vibranium untuk dieksekusi. Jika permintaan ini tidak dipenuhi, Namor mengancam akan mengerahkan pasukannya untuk naik ke daratan dan menghabisi seisi dunia.\n" +
+                    "\n" +
+                    "Semua kejadian ini berubah menjadi masalah yang sangat kompleks yang melibatkan Wakanda, Talokan, dan pemerintah. Disamping rasa berduka yang tengah menimpa Wakanda, mereka harus bersatu dan berjuang demi mempertahankan tanah yang mereka cintai.\n" +
+                    "\n" +
+                    "Black Panther: Wakanda Forever kembali dibintangi oleh Letitia Wright sebagai Shuri, Angel Basset sebagai ibu Ramonda, Danai Gurira sebagai Okoye, dan Lupita Nyong’o sebagai Nakia. Selain itu, film ini juga menjadi debut Tenoch Huerta sebagai Namor, raja bangsa Talokan.",
             "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sv1xJUazXeYqALzczSZ3O6nkH75.jpg",
             "09 Nov 2022",
             "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/xDMIl84Qo5Tsu62c9DGWhmPI67A.jpg"

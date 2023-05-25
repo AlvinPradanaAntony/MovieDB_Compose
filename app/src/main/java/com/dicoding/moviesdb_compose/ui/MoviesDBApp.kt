@@ -1,18 +1,15 @@
 package com.dicoding.moviesdb_compose.ui
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -24,10 +21,12 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.dicoding.moviesdb_compose.R
-import com.dicoding.moviesdb_compose.data.model.Movies
 import com.dicoding.moviesdb_compose.ui.component.BottomBar
 import com.dicoding.moviesdb_compose.ui.component.navigation.NavigationRouteScreen
-import com.dicoding.moviesdb_compose.ui.pages.*
+import com.dicoding.moviesdb_compose.ui.pages.About
+import com.dicoding.moviesdb_compose.ui.pages.Detail
+import com.dicoding.moviesdb_compose.ui.pages.Favorite
+import com.dicoding.moviesdb_compose.ui.pages.Home
 import com.dicoding.moviesdb_compose.ui.theme.MoviesDB_ComposeTheme
 
 @Composable

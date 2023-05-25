@@ -13,7 +13,6 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -34,11 +33,9 @@ import com.dicoding.moviesdb_compose.R
 import com.dicoding.moviesdb_compose.UiState
 import com.dicoding.moviesdb_compose.ViewModelFactory
 import com.dicoding.moviesdb_compose.data.di.Injection
-import com.dicoding.moviesdb_compose.data.repository.RepositoryMovies
 import com.dicoding.moviesdb_compose.ui.theme.MoviesDB_ComposeTheme
 import com.dicoding.moviesdb_compose.ui.theme.colorAccent
 import com.dicoding.moviesdb_compose.viewmodels.DetailViewModel
-import com.dicoding.moviesdb_compose.viewmodels.MoviesViewModel
 
 @Composable
 fun Detail(
@@ -193,7 +190,7 @@ fun DetailContent(
                 .clip(CircleShape)
                 .size(40.dp)
                 .testTag("back_button")
-                .background(Color.White)
+                .background(MaterialTheme.colors.surface)
         ) {
             Icon(
                 imageVector = Icons.Default.ArrowBack,

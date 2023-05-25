@@ -3,7 +3,6 @@ package com.dicoding.moviesdb_compose
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.moviesdb_compose.data.repository.RepositoryMovies
-import com.dicoding.moviesdb_compose.ui.pages.Favorite
 import com.dicoding.moviesdb_compose.viewmodels.DetailViewModel
 import com.dicoding.moviesdb_compose.viewmodels.FavouriteViewModel
 import com.dicoding.moviesdb_compose.viewmodels.MoviesViewModel

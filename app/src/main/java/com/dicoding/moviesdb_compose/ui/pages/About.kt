@@ -25,7 +25,7 @@ import com.dicoding.moviesdb_compose.ui.theme.whiteSubtitle
 
 @Composable
 fun About(
-    modifier: Modifier = Modifier,
+    modifier: Modifier = Modifier
 ) {
     AboutContent()
 }
@@ -47,7 +47,7 @@ fun AboutContent(
                 elevation = 2.dp,
                 modifier = modifier
                     .fillMaxWidth()
-                    .height(300.dp)
+                    .height(250.dp)
             ) {
                 Column(
                     modifier = Modifier
@@ -106,7 +106,7 @@ fun AboutContent(
                 }
             }
             Image(
-                painter = painterResource(R.drawable.bakcdropth),
+                painter = painterResource(R.drawable.profile),
                 contentDescription = "Profile Image",
                 contentScale = ContentScale.Crop,
                 modifier = modifier

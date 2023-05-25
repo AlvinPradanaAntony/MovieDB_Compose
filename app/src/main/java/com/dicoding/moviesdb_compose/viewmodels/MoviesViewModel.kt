@@ -29,16 +29,4 @@ class MoviesViewModel(private val repository: RepositoryMovies): ViewModel() {
                 _uiState.value = UiState.Success(it)
             }
     }
-
-    fun getAllDataMovies() {
-        viewModelScope.launch {
-            repository.getAllListMovies()
-                .catch {
-                    _uiState.value = UiState.Error(it.message.toString())
-                }
-                .collect {
-                    _uiState.value = UiState.Success(it)
-                }
-        }
-    }
 }

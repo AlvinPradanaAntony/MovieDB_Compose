@@ -3,7 +3,6 @@ package com.dicoding.moviesdb_compose.ui.pages
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -16,10 +15,8 @@ import com.dicoding.moviesdb_compose.ViewModelFactory
 import com.dicoding.moviesdb_compose.data.di.Injection
 import com.dicoding.moviesdb_compose.data.model.Movies
 import com.dicoding.moviesdb_compose.ui.component.ListDataMovies
-import com.dicoding.moviesdb_compose.ui.component.SearchBar
 import com.dicoding.moviesdb_compose.ui.theme.MoviesDB_ComposeTheme
 import com.dicoding.moviesdb_compose.viewmodels.FavouriteViewModel
-import com.dicoding.moviesdb_compose.viewmodels.MoviesViewModel
 
 @Composable
 fun Favorite(

@@ -4,7 +4,6 @@ import com.dicoding.moviesdb_compose.data.model.Movies
 import com.dicoding.moviesdb_compose.data.model.MoviesDBData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
 
 class RepositoryMovies {
     private val listMovies = mutableListOf<Movies>()
@@ -61,5 +60,4 @@ class RepositoryMovies {
                 }
             }
     }
-
 }
