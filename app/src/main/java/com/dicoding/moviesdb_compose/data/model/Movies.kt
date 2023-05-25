@@ -1,5 +1,9 @@
 package com.dicoding.moviesdb_compose.data.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Movies(
     val id: Int,
     val name: String,
@@ -7,4 +11,4 @@ data class Movies(
     val photo: String,
     val releaseDate: String,
     val photoCover: String
-)
+): Parcelable

@@ -151,4 +151,20 @@ object MoviesDBData {
             "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/fwrqW8Lp5VQuppFrODd4iJ8LySE.jpg"
         )
     )
+    fun getMovieList(): ArrayList<Movies> {
+        val movieList = ArrayList<Movies>()
+        for (data in movies) {
+            val movie = Movies(
+                data.id,
+                data.name,
+                data.description,
+                data.photo,
+                data.releaseDate,
+                data.photoCover
+            )
+            movieList.add(movie)
+        }
+        return movieList
+    }
 }
+
