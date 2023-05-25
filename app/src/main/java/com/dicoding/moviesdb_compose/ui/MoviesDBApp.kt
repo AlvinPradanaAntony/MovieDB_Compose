@@ -64,11 +64,7 @@ fun MoviesDBApp(
             composable(NavigationRouteScreen.Home.route) {
                 Home(
                     navigateToDetail = { movieId ->
-                        navController.navigate(
-                            NavigationRouteScreen.Detail.createRoute(
-                                movieId
-                            )
-                        )
+                        navController.navigate(NavigationRouteScreen.Detail.createRoute(movieId))
                     }
                 )
             }
@@ -78,15 +74,13 @@ fun MoviesDBApp(
             composable(NavigationRouteScreen.About.route) {
                 About()
             }
-            composable(NavigationRouteScreen.Info.route) {
-                Info()
-            }
             composable(
                 route = NavigationRouteScreen.Detail.route,
-                arguments = listOf(navArgument("movieId") { type = NavType.IntType })
+                arguments = listOf(navArgument("moviesId") { type = NavType.LongType })
             ) {
-                val id = it.arguments?.getInt("movieId") ?: -1
+                val id = it.arguments?.getLong("moviesId") ?: -1
                 Detail(
+                    moviesId = id,
                     navigateBack = {
                         navController.navigateUp()
                     }

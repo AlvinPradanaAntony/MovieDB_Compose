@@ -12,9 +12,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.LocationOn
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,7 +24,6 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -36,24 +35,28 @@ import com.dicoding.moviesdb_compose.R
 import com.dicoding.moviesdb_compose.ViewModelFactory
 import com.dicoding.moviesdb_compose.data.db.RepositoryMovies
 import com.dicoding.moviesdb_compose.ui.theme.MoviesDB_ComposeTheme
-import com.dicoding.moviesdb_compose.ui.theme.blackOverlay
 import com.dicoding.moviesdb_compose.ui.theme.colorAccent
 import com.dicoding.moviesdb_compose.viewmodels.MoviesViewModel
 
 @Composable
 fun Detail(
+    moviesId: Long,
     moviesViewModel: MoviesViewModel = viewModel(
         factory = ViewModelFactory(RepositoryMovies())
     ),
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val movies by moviesViewModel.movies.collectAsState()
+    val movie = movies.first() {
+        it.id == moviesId
+    }
     DetailContent(
-        photo = "",
-        backCover = "",
-        title = "Avatar 2",
-        description = R.string.placeholder_description.toString(),
-        releaseDate = "16 Mar 2023",
+        photo = movie.photo,
+        backCover = movie.photoCover,
+        title = movie.name,
+        description = movie.description,
+        releaseDate = movie.releaseDate,
         navigateBack = navigateBack,
         modifier = modifier
     )
@@ -69,7 +72,10 @@ fun DetailContent(
     navigateBack: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Box() {
+    Box(
+        modifier = modifier
+            .fillMaxSize()
+    ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
@@ -80,7 +86,7 @@ fun DetailContent(
                 AsyncImage(
                     colorFilter = ColorFilter.tint(Color.Black.copy(alpha = 0.5f), BlendMode.Multiply),
                     model = backCover,
-                    placeholder = painterResource(R.drawable.bakcdropth),
+                    placeholder = painterResource(R.drawable.placeholder),
                     contentDescription = "Back Cover",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
@@ -89,7 +95,7 @@ fun DetailContent(
                 )
                 AsyncImage(
                     model = photo,
-                    placeholder = painterResource(R.drawable.cover),
+                    placeholder = painterResource(R.drawable.placeholder),
                     contentDescription = "Back Cover",
                     contentScale = ContentScale.Crop,
                     modifier = Modifier
@@ -184,6 +190,7 @@ fun DetailContent(
 fun DetailPreview() {
     MoviesDB_ComposeTheme {
         Detail(
+            moviesId = 1,
             navigateBack = {}
         )
     }

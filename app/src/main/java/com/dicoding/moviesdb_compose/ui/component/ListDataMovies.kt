@@ -38,6 +38,7 @@ import kotlinx.coroutines.launch
 fun ListDataMovies(
     listMovie: List<Movies>,
     modifier: Modifier = Modifier,
+    navigateToDetail: (Long) -> Unit
 ){
     Box(modifier = modifier) {
         val scope = rememberCoroutineScope()
@@ -60,6 +61,7 @@ fun ListDataMovies(
                     modifier = Modifier
                         .fillMaxWidth()
                         .animateItemPlacement(tween(durationMillis = 100))
+                        .clickable { navigateToDetail(item.id) }
                 )
             }
         }
@@ -87,7 +89,8 @@ fun ListDataMovies(
 fun ListMoviesDataPreview() {
     MoviesDB_ComposeTheme {
         ListDataMovies(
-            listMovie = MoviesDBData.movies
+            listMovie = MoviesDBData.movies,
+            navigateToDetail = {}
         )
     }
 }

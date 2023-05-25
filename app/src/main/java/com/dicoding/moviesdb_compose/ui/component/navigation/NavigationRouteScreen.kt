@@ -4,10 +4,7 @@ sealed class NavigationRouteScreen(val route: String) {
     object Home : NavigationRouteScreen("home")
     object Favourite : NavigationRouteScreen("favourite")
     object About : NavigationRouteScreen("about")
-    object Info: NavigationRouteScreen("info")
-    object Detail : NavigationRouteScreen("detail/{movieId}") {
-        fun createRoute(movieId: Int): String {
-            return "detail/$movieId"
-        }
+    object Detail : NavigationRouteScreen("home/{moviesId}") {
+        fun createRoute(moviesId: Long) = "home/$moviesId"
     }
 }

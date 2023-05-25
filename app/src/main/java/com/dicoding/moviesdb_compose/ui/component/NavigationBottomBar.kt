@@ -57,11 +57,6 @@ fun BottomBar(
                 icon = Icons.Default.AccountCircle,
                 screen = NavigationRouteScreen.About
             ),
-            NavigationItem(
-                title = stringResource(R.string.menu_info),
-                icon = Icons.Default.Info,
-                screen = NavigationRouteScreen.Info
-            ),
         )
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentRoute = navBackStackEntry?.destination?.route
