@@ -1,5 +1,6 @@
 package com.dicoding.moviesdb_compose.ui.pages
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -13,6 +14,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -20,6 +22,7 @@ import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -36,6 +39,7 @@ import com.dicoding.moviesdb_compose.data.di.Injection
 import com.dicoding.moviesdb_compose.ui.theme.MoviesDB_ComposeTheme
 import com.dicoding.moviesdb_compose.ui.theme.colorAccent
 import com.dicoding.moviesdb_compose.viewmodels.DetailViewModel
+import kotlinx.coroutines.launch
 
 @Composable
 fun Detail(
@@ -88,6 +92,8 @@ fun DetailContent(
     modifier: Modifier = Modifier,
     onFavoriteButtonClicked: (id: Long, state: Boolean) -> Unit,
 ) {
+    val context = LocalContext.current
+    val coroutineScope = rememberCoroutineScope()
     Box(
         modifier = modifier.fillMaxSize()
     ) {
@@ -97,9 +103,12 @@ fun DetailContent(
                 .verticalScroll(rememberScrollState())
                 .padding(bottom = 16.dp),
         ) {
-            Box(modifier = Modifier){
+            Box(modifier = Modifier) {
                 AsyncImage(
-                    colorFilter = ColorFilter.tint(Color.Black.copy(alpha = 0.5f), BlendMode.Multiply),
+                    colorFilter = ColorFilter.tint(
+                        Color.Black.copy(alpha = 0.5f),
+                        BlendMode.Multiply
+                    ),
                     model = backCover,
                     placeholder = painterResource(R.drawable.placeholder),
                     contentDescription = "Back Cover",
@@ -151,7 +160,7 @@ fun DetailContent(
                         .background(colorAccent),
                     contentAlignment = Alignment.Center,
 
-                    ){
+                    ) {
                     Text(
                         text = releaseDate,
                         fontSize = 10.sp,
@@ -198,7 +207,14 @@ fun DetailContent(
             )
         }
         FloatingActionButton(
-            onClick = {  onFavoriteButtonClicked(id, isFavorite) },
+            onClick = {
+                coroutineScope.launch {
+                    onFavoriteButtonClicked(id, isFavorite)
+                    val message =
+                        "$title ${if (isFavorite) "di hapus sebagai" else "di tambahkan sebagai"} favorite"
+                    Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+                }
+            },
             backgroundColor = colorAccent,
             modifier = Modifier
                 .padding(16.dp)
@@ -217,9 +233,17 @@ fun DetailContent(
 @Composable
 fun DetailPreview() {
     MoviesDB_ComposeTheme {
-        Detail(
-            moviesId = 1,
-            navigateBack = {}
+        DetailContent(
+            id = 1,
+            photo = "https://image.tmdb.org/t/p/w500/6MKr3KgOLmzOP6MSuZERO41Lpkt.jpg",
+            backCover = "https://image.tmdb.org/t/p/w500/6MKr3KgOLmzOP6MSuZERO41Lpkt.jpg",
+            title = "Mortal Kombat",
+            description = "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+            releaseDate = "2021-04-07",
+            isFavorite = false,
+            navigateBack = {},
+            modifier = Modifier,
+            onFavoriteButtonClicked = { id, state -> }
         )
     }
 }

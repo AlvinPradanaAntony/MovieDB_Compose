@@ -14,10 +14,6 @@ class RepositoryMovies {
         }
     }
 
-    fun getAllListMovies(): Flow<List<Movies>> {
-        return flowOf(listMovies)
-    }
-
     fun getItemMovieById(moviesId: Long): Flow<Movies> {
         return flowOf(listMovies.first {
             it.id == moviesId
